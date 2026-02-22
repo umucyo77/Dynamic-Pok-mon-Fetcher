@@ -10,3 +10,36 @@ toggleDark.addEventListener("click", () => {
 });
 
 button.addEventListener("click", fetchPokemon);
+
+async function fetchPokemon() {
+  const pokemonName = input.value.trim().toLowerCase();
+  if (!pokemonName) return;
+
+  card.innerHTML = "";
+  errorText.textContent = "";
+  card.classList.add("hidden");
+
+  loading.classList.remove("hidden");
+  button.disabled = true;
+
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error("Pokémon not found.");
+      } else {
+        throw new Error("Something went wrong.");
+      }
+    }
+
+    const data = await response.json();
+    displayPokemon(data);
+
+  } catch (error) {
+    errorText.textContent = error.message;
+  } finally {
+    loading.classList.add("hidden");
+    button.disabled = false;
+  }
+}
