@@ -57,4 +57,26 @@ function displayPokemon(data) {
     </span>
   `).join("");
 
+   card.innerHTML = `
+    <div class="animate-fadeIn">
+      <h2 class="text-xl font-bold text-gray-800 dark:text-white">${name} ${id}</h2>
+
+      <div class="flex justify-center gap-4 my-4">
+        <img src="${data.sprites.front_default}" class="w-20 hover:scale-110 transition">
+        <img src="${data.sprites.back_default}" class="w-20 hover:scale-110 transition">
+        <img src="${data.sprites.front_shiny}" class="w-20 hover:scale-110 transition">
+      </div>
+
+      <p class="text-gray-600 dark:text-gray-300">Height: ${height} m</p>
+      <p class="text-gray-600 dark:text-gray-300">Weight: ${weight} kg</p>
+      <p class="text-gray-600 dark:text-gray-300">Base XP: ${baseExp}</p>
+
+      <div class="flex justify-center gap-2 mt-3">
+        ${types}
+      </div>
+    </div>
+  `;
+
+  card.classList.remove("hidden");
+
 }
