@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemo</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body   class="min-h-sreen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500 ">
 
-    <div>
-        <!-- main card -->
-        <div class="bg-white dark:bg-gray-500 rounde-2xl shadow-xl p-6 text-center transformation transition-500 ">
-            <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Pokemo Explorer</h1>
+<body
+    class="min-h-sreen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-700 to-pink-500 ">
 
-            <!-- input -->
+    <div class="w-full max-w-md p-9">
+
+        <!-- Dark Mode Toggle -->
+        <div class="flex justify-center mb-4">
+            <button id="toggleDark"
+                class="px-3 py-1 text-sm bg-white dark:bg-gray-700 rounded-lg shadow hover:scale-105 transition">
+                Toggle Dark
+            </button>
+        </div>
+
+        <!-- Main Card -->
+        <div
+            class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 text-center transform transition-all duration-500">
+
+            <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+                Pokémon Explorer
+            </h1>
+
+            <!-- Input -->
             <div class="flex gap-2 mb-4">
-                <input id="pokemoIpt" type="text" class="flex-1 px-3 py-2 border  focus:ring-2   rounded-2xl "
-                    placeholder="Enter your Id or name">
-                <button id="fetchBtn" type="button" class="rounded-lg px-8 py-3 bg-indigo-500 text-white hover:bg-indigo-700 hover:scale-105 transition" value="Fetch">
-                    Fetch
+                <input id="pokemonInput" type="text" placeholder="Enter Pokémon name or ID"
+                    class="flex-1 px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+
+                <button id="searchBtn"
+                    class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 hover:scale-105 transition">
+                    Search
                 </button>
             </div>
 
-
-            <!-- Loading spinner -->
+            <!-- Loading Spinner -->
             <div id="loading" class="hidden flex justify-center my-4">
-                <div class="w-8 h-8 border-4 border-white rounded-full border-t-transparent animate-spin"></div>
+                <div class="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
             </div>
-            
-            <!-- Pokemon Display -->
-             
-            <div id="pokemoCard" class="mt-5 hidden"></div>
 
-            <!-- error message -->
+            <!-- Error Message -->
+            <p id="error" class="text-red-500 font-semibold"></p>
 
-            <div id="error" class="text-red-600 font-semibold"></div>
-    </div> 
+            <!-- Pokémon Display -->
+            <div id="pokemonCard" class="mt-4 hidden"></div>
 
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
+
 </html>

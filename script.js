@@ -11,6 +11,9 @@ toggleDark.addEventListener("click", () => {
 
 button.addEventListener("click", fetchPokemon);
 
+
+button.addEventListener("click", fetchPokemon);
+
 async function fetchPokemon() {
   const pokemonName = input.value.trim().toLowerCase();
   if (!pokemonName) return;
@@ -43,7 +46,6 @@ async function fetchPokemon() {
     button.disabled = false;
   }
 }
-
 function displayPokemon(data) {
   const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
   const id = `#${data.id.toString().padStart(3, "0")}`;
