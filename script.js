@@ -43,3 +43,18 @@ async function fetchPokemon() {
     button.disabled = false;
   }
 }
+
+function displayPokemon(data) {
+  const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+  const id = `#${data.id.toString().padStart(3, "0")}`;
+  const height = (data.height / 10).toFixed(1);
+  const weight = (data.weight / 10).toFixed(1);
+  const baseExp = data.base_experience;
+
+  const types = data.types.map(type => `
+    <span class="px-2 py-1 bg-indigo-100 dark:bg-indigo-600 dark:text-white rounded-full text-sm">
+      ${type.type.name}
+    </span>
+  `).join("");
+
+}
